@@ -1,3 +1,8 @@
+/*
+ *  UCF COP3330 Summer 2021 Assignment 1 Solution
+ *  Copyright 2021 Ryan Harding
+ */
+
 package base;
 
 import java.util.Scanner;
@@ -16,7 +21,15 @@ public class TaxCalc {
 
   public double initial() {
     System.out.print("What is the order amount? ");
-    return input.nextDouble();
+    String n = input.next();
+    try {
+      Double.parseDouble(n);
+    }
+    catch (NumberFormatException e) {
+      System.out.println("ERROR: Invalid Amount! Try Again.");
+      return initial();
+    }
+    return Double.parseDouble(n);
   }
 
   public String state() {
